@@ -26,8 +26,8 @@ public class APIServiceUtils {
         String GENRE_AMBIENT = "ambient";
         String GENRE_CLASSICAL = "classical";
         String GENRE_COUNTRY = "country";
-        String GENRE_LIMIT_DEFAULT = "20";
-        String GENRE_OFFSET_DEFAULT = "20";
+        String GENRE_LIMIT_DEFAULT = "8";
+        String GENRE_OFFSET_DEFAULT = "8";
     }
 
     @ApiGenre
