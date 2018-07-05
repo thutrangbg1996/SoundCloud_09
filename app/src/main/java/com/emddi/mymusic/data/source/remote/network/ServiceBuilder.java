@@ -48,7 +48,7 @@ public class ServiceBuilder extends AsyncTask<String, Void, String> {
         if (mResponseListenner == null) return;
         if (getException() == null) {
             Genre genresModel = new Genre(parseTrackJSONObject(data));
-            mResponseListenner.onReponse(genresModel);
+            mResponseListenner.onSuccess(genresModel);
         } else {
             mResponseListenner.onFailure(getException().getMessage());
         }
@@ -94,7 +94,7 @@ public class ServiceBuilder extends AsyncTask<String, Void, String> {
                 .setTitle(jsonObjectTrack.optString(Track.TrackAttribute.TITLE))
                 .setUri(jsonObjectTrack.optString(Track.TrackAttribute.URI))
                 .setUsername(jsonObjectUser.optString(Track.TrackAttribute.USERNAME))
-                .setAvatarUrl(jsonObjectTrack.optString(Track.TrackAttribute.AVATAR_URL));
+                .setAvatarUrl(jsonObjectUser.optString(Track.TrackAttribute.AVATAR_URL));
         return builder.build();
     }
 }

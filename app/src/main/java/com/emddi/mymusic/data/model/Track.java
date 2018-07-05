@@ -36,7 +36,6 @@ public class Track implements Parcelable {
         }
     };
 
-
     @Override
     public int describeContents() {
         return 0;
