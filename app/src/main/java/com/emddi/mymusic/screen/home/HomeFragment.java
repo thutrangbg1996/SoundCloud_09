@@ -7,11 +7,13 @@ import android.widget.ProgressBar;
 import com.emddi.mymusic.R;
 import com.emddi.mymusic.base.BaseFragment;
 import com.emddi.mymusic.data.model.Genre;
+import com.emddi.mymusic.data.repository.GenreRepository;
 import com.emddi.mymusic.screen.home.adapter.GenreAdapter;
+import com.emddi.mymusic.utils.APIServiceUtils;
 
 import java.util.List;
 
-public class Fragment extends BaseFragment<HomeContract.Presenter> implements HomeContract.View {
+public class HomeFragment extends BaseFragment<HomeContract.Presenter> implements HomeContract.View {
     private RecyclerView mRecyclerGenre;
     private ProgressBar mProgressBar;
 
@@ -24,7 +26,7 @@ public class Fragment extends BaseFragment<HomeContract.Presenter> implements Ho
     public void getGenreSuccess(List<Genre> genres) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerGenre.setLayoutManager(linearLayoutManager);
-        GenreAdapter genreAdapter = new GenreAdapter(getContext(), genres);
+        GenreAdapter genreAdapter = new GenreAdapter(getContext(), APIServiceUtils.LIST_TRACK_GENRES, genres);
         mRecyclerGenre.setAdapter(genreAdapter);
     }
 
@@ -46,7 +48,7 @@ public class Fragment extends BaseFragment<HomeContract.Presenter> implements Ho
 
     @Override
     public HomeContract.Presenter onCreatePresenter() {
-        return new HomePresenter(this);
+        return new HomePresenter(this, GenreRepository.getInstance());
     }
 
     @Override

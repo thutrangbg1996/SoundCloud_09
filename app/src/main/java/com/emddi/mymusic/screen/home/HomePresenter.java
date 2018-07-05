@@ -1,25 +1,27 @@
 package com.emddi.mymusic.screen.home;
 
 import com.emddi.mymusic.base.BasePresenterImpl;
-import com.emddi.mymusic.callback.ResponseListenner;
 import com.emddi.mymusic.data.model.Genre;
-import com.emddi.mymusic.data.source.remote.network.ServiceBuilder;
-import com.emddi.mymusic.utils.APIServiceUtils;
+import com.emddi.mymusic.data.repository.GenreRepository;
+import com.emddi.mymusic.data.source.GenreDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomePresenter extends BasePresenterImpl<HomeContract.View> implements
-        ResponseListenner<Genre>, HomeContract.Presenter {
+        GenreDataSource.OnFetchDataListener<Genre>, HomeContract.Presenter {
     private List<Genre> mGenres = new ArrayList<>();
+    private GenreRepository mGenreRepository;
 
-    public HomePresenter(HomeContract.View view) {
+    public HomePresenter(HomeContract.View view, GenreRepository genreRepository) {
         super(view);
+        mGenreRepository = genreRepository;
     }
 
     @Override
     public void getGenre() {
         mView.showProgress();
+        mGenreRepository.getTrackRemote(this);
     }
 
     @Override
