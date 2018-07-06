@@ -1,3 +1,9 @@
 <resources>
-  <string name="app_name">MyMusic</string>
+    <string name="app_name">MyMusic</string>
+    <string name="title_home">Home</string>
+    <string name="title_playlist">Playlist</string>
+    <string name="title_download">Download</string>
+    <string name="show_more">Xem thêm</string>
+    <string name="search_track">Tìm kiếm bài hát</string>
+    <string name="title_activity_play_music">PlayMusicActivity</string>
 </resources>

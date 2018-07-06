@@ -1,9 +1,10 @@
 package com.emddi.mymusic.data.source.remote.network;
 
 import android.os.AsyncTask;
-import com.emddi.mymusic.callback.ResponseListenner;
 import com.emddi.mymusic.data.model.Genre;
 import com.emddi.mymusic.data.model.Track;
+import com.emddi.mymusic.data.source.GenreDataSource;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceBuilder extends AsyncTask<String, Void, String> {
-    private ResponseListenner<Genre> mResponseListenner;
+    private GenreDataSource.OnFetchDataListener<Genre> mResponseListenner;
     private Exception mException;
 
-    public ServiceBuilder(ResponseListenner<Genre> listener) {
+    public ServiceBuilder(GenreDataSource.OnFetchDataListener<Genre> listener) {
         mResponseListenner = listener;
     }
 

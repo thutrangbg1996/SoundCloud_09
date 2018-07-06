@@ -7,7 +7,7 @@ import android.widget.SearchView;
 
 import com.emddi.mymusic.R;
 import com.emddi.mymusic.base.BaseActivity;
-import com.emddi.mymusic.screen.home.Fragment;
+import com.emddi.mymusic.screen.home.HomeFragment;
 import com.emddi.mymusic.utils.FragmentTransactionUtils;
 
 public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View,
@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         super.onPrepareLayout();
         mSearchView.setQueryHint(getString(R.string.search_track));
         mNavigation.setOnNavigationItemSelectedListener(this);
-        FragmentTransactionUtils.replaceAddToBackStack(getSupportFragmentManager(), new Fragment(),
+        FragmentTransactionUtils.replaceAddToBackStack(getSupportFragmentManager(), new HomeFragment(),
                 R.id.frame_container, false);
     }
 
@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 FragmentTransactionUtils.replaceAddToBackStack(getSupportFragmentManager(),
-                        new Fragment(), R.id.frame_container, false);
+                        new HomeFragment(), R.id.frame_container, false);
                 return true;
             case R.id.navigation_dashboard:
                 return true;
