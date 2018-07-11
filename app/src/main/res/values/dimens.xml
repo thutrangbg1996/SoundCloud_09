@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
     <dimen name="dp_8">8dp</dimen>
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_16">16sp</dimen>
     <dimen name="sp_18">18sp</dimen>
     <dimen name="dp_12">12dp</dimen>
-
-    <!--item track-->
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
     <dimen name="dp_126">126dp</dimen>
     <dimen name="dp_136">136dp</dimen>
-
-    <!--item genre-->
     <dimen name="dp_164">164dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_22">22dp</dimen>
-
+    <dimen name="dp_56">56dp</dimen>
+    <dimen name="dp_300">300dp</dimen>
 </resources>

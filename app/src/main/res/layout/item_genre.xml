@@ -34,7 +34,7 @@
         android:layout_height="@dimen/dp_22"
         android:layout_marginLeft="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_12"
-        android:src="@drawable/ic_next"
+        android:src="@drawable/ic_play_next"
         app:layout_constraintLeft_toRightOf="@id/text_name_genre"
         app:layout_constraintTop_toBottomOf="@id/text_border"/>
 

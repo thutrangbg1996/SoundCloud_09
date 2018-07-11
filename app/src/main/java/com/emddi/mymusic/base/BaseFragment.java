@@ -44,4 +44,11 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         onPrepareLayout();
         return mRootView;
     }
+
+    public BaseActivity getBaseActivity() {
+        if (getActivity() instanceof BaseActivity) {
+            return (BaseActivity) getActivity();
+        }
+        return null;
+    }
 }

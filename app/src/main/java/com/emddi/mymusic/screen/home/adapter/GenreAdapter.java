@@ -18,6 +18,7 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.ItemViewHold
     private List<String> mGenreNames;
     private List<Genre> mGenres;
     private LayoutInflater mInflater;
+    private TrackAdapter.OnTrackClickListener mListener;
 
     public GenreAdapter(Context context, List<String> genreNames, List<Genre> genres) {
         mGenreNames = genreNames;
@@ -25,11 +26,15 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.ItemViewHold
         mInflater = LayoutInflater.from(context);
     }
 
+    public void setListener(TrackAdapter.OnTrackClickListener listener){
+        mListener = listener;
+    }
+
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ItemViewHolder(mInflater.inflate(R.layout.item_genre, parent,
-                false));
+                false), mListener);
     }
 
     @Override
@@ -48,13 +53,15 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.ItemViewHold
         private final TextView mName;
         private TrackAdapter mTrackAdapter;
         private RecyclerView mRecyclerView;
+        private TrackAdapter.OnTrackClickListener mListener;
 
-        private ItemViewHolder(View itemView) {
+        private ItemViewHolder(View itemView, TrackAdapter.OnTrackClickListener listener) {
             super(itemView);
             mName = itemView.findViewById(R.id.text_name_genre);
             mRecyclerView = itemView.findViewById(R.id.recycler_track);
             mRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext(),
                     LinearLayoutManager.HORIZONTAL, false));
+            mListener = listener;
             mTrackAdapter = new TrackAdapter(itemView.getContext());
             mRecyclerView.setAdapter(mTrackAdapter);
         }
@@ -62,6 +69,7 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.ItemViewHold
         private void bindView(Genre genre, String genreName) {
             if (genre == null) return;
             mName.setText(genreName);
+            mTrackAdapter.setListener(mListener);
             mTrackAdapter.setTracks(genre.getListTrack());
         }
     }
